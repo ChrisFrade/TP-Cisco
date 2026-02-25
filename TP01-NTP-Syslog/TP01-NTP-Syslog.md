@@ -22,15 +22,6 @@ Syslog : Reçoit et stocke les logs du routeur et du switch.
 
 # 2. Routeur R1 (Configuration IP & Logs)
 <pre>
-
-bash
- 
-enable
-
-conf t
-
-hostname R1
-
 ! --- Configuration du Routeur R1 ---
 enable
 configure terminal
