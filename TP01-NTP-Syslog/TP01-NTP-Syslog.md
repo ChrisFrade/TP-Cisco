@@ -30,6 +30,20 @@ enable
 conf t
 
 hostname R1
+
+! --- Configuration du Routeur R1 ---
+enable
+configure terminal
+hostname R1
+
+! Configuration NTP
+ntp server 192.168.1.10
+service timestamps log datetime msec
+
+! Configuration Syslog
+logging host 192.168.1.10
+logging on
+ 
 </pre>
 # Adressage IP
 interface g0/0
