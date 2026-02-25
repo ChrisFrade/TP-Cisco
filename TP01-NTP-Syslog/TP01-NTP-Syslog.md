@@ -6,11 +6,14 @@ Ce projet démontre la mise en place d'une infrastructure réseau de base sous C
 
 L'architecture utilise un serveur central comme source de temps et destination des logs.
 
-*1 Routeur Cisco 2911 (Passerelle : 192.168.1.1)
+* 1 Routeur Cisco 2911 (Passerelle : 192.168.1.1/24)
+* 1 Switch Cisco 2960 (Gestion : 192.168.1.5/24)
+* 1 Serveur Générique (Services : 192.168.1.10/24)
 
-*1 Switch Cisco 2960 (Gestion : 192.168.1.5)
-
-*1 Serveur Générique (Services : 192.168.1.10)
+  ---
+## 🚀 Ressources du Lab
+* **Topologie prête à l'emploi** : [Lab_NTP_Syslog.pkt](./TP01_NTP_Syslog.pkt)
+* **Logiciel requis** : Cisco Packet Tracer v8.2+
 
 ⚙️ Configuration des Équipements
 # 1. Routeur R1 (192.168.1.1)
@@ -52,20 +55,16 @@ logging host 192.168.1.10
 </pre>
 # 3. Serveur (192.168.1.10)
 <pre>
- 
-Service NTP : Activé (Source de temps).
-
-Service Syslog : Activé (Réception des messages).
- 
+* Service NTP : Activé (Source de temps).
+* Service Syslog : Activé (Réception des messages).
+* configuration de l'ip, masque, passerelle
 </pre>
 ✅ Vérification
 Pour valider la configuration, les commandes suivantes ont été utilisées :
 
-- show ntp associations : Confirme que l'astérisque (*) est présent devant l'IP du serveur.
-
-- show clock : Vérifie que l'heure est synchronisée sur la bonne date.
-
-- show logging : Vérifie que l'envoi vers l'hôte 192.168.1.10 est actif.
+* show ntp associations : Confirme que l'astérisque (*) est présent devant l'IP du serveur.
+* show clock : Vérifie que l'heure est synchronisée sur la bonne date.
+* show logging : Vérifie que l'envoi vers l'hôte 192.168.1.10 est actif.
 
 📖 Règle d'apprentissage
 
