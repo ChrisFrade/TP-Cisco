@@ -21,12 +21,14 @@ Services activés : * NTP : Sert de source de temps pour le réseau.
 Syslog : Reçoit et stocke les logs du routeur et du switch.
 
 # 2. Routeur R1 (Configuration IP & Logs)
+<pre>
+ ```
 enable
 
 conf t
 
 hostname R1
-
+</pre>
 # Adressage IP
 interface g0/0
 
