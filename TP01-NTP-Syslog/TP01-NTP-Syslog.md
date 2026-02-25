@@ -56,16 +56,18 @@ service timestamps log datetime msec
 logging host 192.168.1.10
 
 logging on
-
+</pre>
 # 3. Switch S1 (Configuration IP & Logs)
-enable
+<pre>
+ enable
 
 conf t
 
 hostname S1
-
+</pre>
 # Adressage IP (VLAN Management)
-interface vlan 1
+<pre>
+ interface vlan 1
 
  ip address 192.168.1.5 255.255.255.0
  
@@ -74,14 +76,15 @@ interface vlan 1
 exit
 
 ip default-gateway 192.168.1.1
-
+</pre>
 # Temps & Logs
-ntp server 192.168.1.10
+<pre>
+ ntp server 192.168.1.10
 
 service timestamps log datetime msec
 
 logging host 192.168.1.10
-
+</pre>
 ✅ Vérification
 Pour valider la configuration, les commandes suivantes ont été utilisées :
 
