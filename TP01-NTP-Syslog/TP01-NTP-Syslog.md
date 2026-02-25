@@ -50,13 +50,15 @@ exit
 </pre>
 # Temps & Logs
 <pre>
- ntp server 192.168.1.10
+ 
+ntp server 192.168.1.10
 
 service timestamps log datetime msec
 
 logging host 192.168.1.10
 
 logging on
+ 
 </pre>
 # 3. Switch S1 (Configuration IP & Logs)
 <pre>
