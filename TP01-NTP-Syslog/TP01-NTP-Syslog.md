@@ -2,6 +2,7 @@
 Ce projet démontre la mise en place d'une infrastructure réseau de base sous Cisco Packet Tracer, axée sur la synchronisation du temps (NTP) et la centralisation des journaux d'événements (Syslog).
 
 🌐 Topologie du Réseau
+![Topologie du réseau](./syslog%20ntp%20server.PNG)
 L'architecture se compose de :
 
 1 Routeur Cisco 2911 (Passerelle : 192.168.1.1)
