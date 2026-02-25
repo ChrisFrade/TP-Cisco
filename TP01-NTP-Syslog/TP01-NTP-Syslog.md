@@ -6,11 +6,11 @@ Ce projet démontre la mise en place d'une infrastructure réseau de base sous C
 
 L'architecture utilise un serveur central comme source de temps et destination des logs.
 
-1 Routeur Cisco 2911 (Passerelle : 192.168.1.1)
+*1 Routeur Cisco 2911 (Passerelle : 192.168.1.1)
 
-1 Switch Cisco 2960 (Gestion : 192.168.1.5)
+*1 Switch Cisco 2960 (Gestion : 192.168.1.5)
 
-1 Serveur Générique (Services : 192.168.1.10)
+*1 Serveur Générique (Services : 192.168.1.10)
 
 ⚙️ Configuration des Équipements
 # 1. Routeur R1 (192.168.1.1)
