@@ -4,7 +4,7 @@ Ce projet démontre la mise en place d'une infrastructure réseau de base sous C
 🌐 Topologie du Réseau
 ![Topologie du réseau](./syslog%20ntp%20server.PNG)
 
-L'architecture se compose de :
+L'architecture utilise un serveur central comme source de temps et destination des logs.
 
 1 Routeur Cisco 2911 (Passerelle : 192.168.1.1)
 
@@ -13,80 +13,50 @@ L'architecture se compose de :
 1 Serveur Générique (Services : 192.168.1.10)
 
 ⚙️ Configuration des Équipements
-# 1. Serveur (Services Destination)
+# 1. Routeur R1 (192.168.1.1)
 <pre>
- IP : 192.168.1.10 /24
-
-Services activés : * NTP : Sert de source de temps pour le réseau.
-
-Syslog : Reçoit et stocke les logs du routeur et du switch.
-</pre>
-# 2. Routeur R1 (Configuration IP & Logs)
-<pre>
-! --- Configuration du Routeur R1 ---
 enable
 configure terminal
 hostname R1
 
-! Configuration NTP
-ntp server 192.168.1.10
-service timestamps log datetime msec
-
-! Configuration Syslog
-logging host 192.168.1.10
-logging on
- 
-</pre>
-# Adressage IP
-<pre>
- 
- interface g0/0
-
+! --- Configuration Interface ---
+interface GigabitEthernet 0/0
  ip address 192.168.1.1 255.255.255.0
- 
  no shutdown
- 
 exit
-</pre>
-# Temps & Logs
-<pre>
- 
+
+! --- Temps et Logs ---
 ntp server 192.168.1.10
-
 service timestamps log datetime msec
-
 logging host 192.168.1.10
-
 logging on
- 
 </pre>
-# 3. Switch S1 (Configuration IP & Logs)
+# 2. Switch S1 (192.168.1.5)
 <pre>
- enable
-
-conf t
-
+enable
+configure terminal
 hostname S1
-</pre>
-# Adressage IP (VLAN Management)
-<pre>
- interface vlan 1
 
+! --- Interface de Gestion ---
+interface vlan 1
  ip address 192.168.1.5 255.255.255.0
- 
  no shutdown
- 
 exit
-
 ip default-gateway 192.168.1.1
-</pre>
-# Temps & Logs
-<pre>
- ntp server 192.168.1.10
 
+! --- Temps et Logs ---
+ntp server 192.168.1.10
 service timestamps log datetime msec
-
 logging host 192.168.1.10
+ 
+</pre>
+# 3. Serveur (192.168.1.10)
+<pre>
+ 
+Service NTP : Activé (Source de temps).
+
+Service Syslog : Activé (Réception des messages).
+ 
 </pre>
 ✅ Vérification
 Pour valider la configuration, les commandes suivantes ont été utilisées :
