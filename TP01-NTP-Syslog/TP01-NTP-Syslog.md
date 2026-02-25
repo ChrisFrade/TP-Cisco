@@ -49,7 +49,8 @@ logging on
 exit
 </pre>
 # Temps & Logs
-ntp server 192.168.1.10
+<pre>
+ ntp server 192.168.1.10
 
 service timestamps log datetime msec
 
