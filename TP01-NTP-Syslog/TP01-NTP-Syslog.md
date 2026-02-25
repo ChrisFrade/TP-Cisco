@@ -68,5 +68,5 @@ Pour valider la configuration, les commandes suivantes ont été utilisées :
 - show logging : Vérifie que l'envoi vers l'hôte 192.168.1.10 est actif.
 
 📖 Règle d'apprentissage
-Source pour apprendre, Destination pour transmettre.
+
 Ce dépôt sert de destination pour documenter les compétences acquises sur la gestion des services réseau Cisco.
