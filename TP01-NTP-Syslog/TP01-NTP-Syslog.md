@@ -14,12 +14,13 @@ L'architecture se compose de :
 
 ⚙️ Configuration des Équipements
 # 1. Serveur (Services Destination)
-IP : 192.168.1.10 /24
+<pre>
+ IP : 192.168.1.10 /24
 
 Services activés : * NTP : Sert de source de temps pour le réseau.
 
 Syslog : Reçoit et stocke les logs du routeur et du switch.
-
+</pre>
 # 2. Routeur R1 (Configuration IP & Logs)
 <pre>
 ! --- Configuration du Routeur R1 ---
@@ -37,14 +38,16 @@ logging on
  
 </pre>
 # Adressage IP
-interface g0/0
+<pre>
+ 
+ interface g0/0
 
  ip address 192.168.1.1 255.255.255.0
  
  no shutdown
  
 exit
-
+</pre>
 # Temps & Logs
 ntp server 192.168.1.10
 
