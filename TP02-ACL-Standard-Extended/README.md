@@ -20,21 +20,22 @@ Pour optimiser les performances et la précision, j'applique la règle suivante 
 
 ### 1. ACL Standard (Interdire PC0 vers Serveur)
 Placée sur l'interface `g0/0/1` en direction du serveur.
-```bash
+<pre>
 access-list 10 deny host 192.168.1.1
 access-list 10 permit any
 interface GigabitEthernet 0/0/1
 ip access-group 10 out
-
+</pre>
 
 ### 2. ACL Étendue (Filtrage granulaire pour PC1)
 Autorise le Web (HTTP), mais bloque le PING (ICMP) vers le serveur. Placée sur g0/0/0 en entrée.
-```bash
+<pre> 
 access-list 100 permit tcp host 192.168.1.2 host 1.1.1.2 eq 80
 access-list 100 deny icmp host 192.168.1.2 host 1.1.1.2
 access-list 100 permit ip any any
 interface GigabitEthernet 0/0/0
 ip access-group 100 in
+</pre>
 
 <pre>
 Source,Destination,Protocole,Résultat Attendu
@@ -44,7 +45,9 @@ PC1,Serveur,ICMP (Ping),❌ Bloqué (ACL 100)
 PC2,Serveur,Tout,✅ Autorisé (Permit Any)
 </pre>
 
-Commandes de diagnostic :
+# Commandes de diagnostic :
+<pre>
 show ip access-lists : Pour vérifier les compteurs de paquets (matches).
 
 show ip interface g0/0/x : Pour confirmer la direction du filtrage.
+</pre>
