@@ -3,7 +3,7 @@
 ## 📋 Description
 Ce laboratoire pratique sur Cisco Packet Tracer vise à sécuriser les flux réseau entre un segment LAN (utilisateurs) et un serveur distant. L'objectif est de maîtriser la différence entre le filtrage par adresse IP source (Standard) et le filtrage granulaire par protocole/port (Étendue).
 
-![Topologie du réseau](.ACL%20Standards%20et%20Etendu.PNG)
+![Topologie du réseau](.ACL%20Standard%20et%20Etendue.PNG)
 
 ## 🏗️ Topologie
 - **Réseau Local (LAN) :** `192.168.1.0/24`
