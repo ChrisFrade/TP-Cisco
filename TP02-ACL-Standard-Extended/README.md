@@ -3,7 +3,7 @@
 ## 📋 Description
 Ce laboratoire pratique sur Cisco Packet Tracer vise à sécuriser les flux réseau entre un segment LAN (utilisateurs) et un serveur distant. L'objectif est de maîtriser la différence entre le filtrage par adresse IP source (Standard) et le filtrage granulaire par protocole/port (Étendue).
 
-![Topologie du réseau](.ACL%20Standard%20et%20Etendue.PNG)
+![Topologie du réseau](ACL%20standard%20et%20etendue.PNG)
 
 ## 🏗️ Topologie
 - **Réseau Local (LAN) :** `192.168.1.0/24`
@@ -29,6 +29,8 @@ interface GigabitEthernet 0/0/1
 ip access-group 10 out
 </pre>
 
+![Topologie du réseau](Avant%20apres%20ACL%20Standard.PNG)
+
 ### 2. ACL Étendue (Filtrage granulaire pour PC1)
 Autorise le Web (HTTP), mais bloque le PING (ICMP) vers le serveur. Placée sur g0/0/0 en entrée.
 <pre> 
@@ -39,6 +41,8 @@ interface GigabitEthernet 0/0/0
 ip access-group 100 in
 </pre>
 
+![ACL étendue](ACL%20etendue.PNG)
+![Ping ACL étendu](Ping%20ACL%20etendue.PNG)
 <pre>
 Source,Destination,Protocole,Résultat Attendu
 PC0,Serveur,Tout,❌ Bloqué (ACL 10)
@@ -46,6 +50,8 @@ PC1,Serveur,HTTP (Port 80),✅ Autorisé (ACL 100)
 PC1,Serveur,ICMP (Ping),❌ Bloqué (ACL 100)
 PC2,Serveur,Tout,✅ Autorisé (Permit Any)
 </pre>
+
+
 
 # Commandes de diagnostic :
 <pre>
